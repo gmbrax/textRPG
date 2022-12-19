@@ -1,19 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "token_linkedlist.h"
 #include "token.h"
 
-typedef struct linkedlistNode{
-    int index;
-    void* data;
-    struct linkedlistNode *next;
-}Node;
 
-typedef struct linkedList
-{
-    int size;
-    struct linkedlistNode *list;
-    struct linkedlistNode *iterator;
-}linkedList;
 
 struct linkedList initList()
 {
@@ -22,8 +12,31 @@ struct linkedList initList()
     list.list = (Node*)malloc(sizeof(Node));
     list.list->next = NULL;
     list.list->data = NULL;
-    list.list->index = 0;
-    list.iterator = NULL;
+
 
     return list;
+}
+
+void appendList(struct linkedList *list, void *data, int datatype)
+{   
+    token NewToken;
+    Node iterator;
+    iterator = *list->list;
+    switch (datatype) 
+    {
+        case 0: // Aqui serve para INTS
+            break;
+        case 1: // Aqui serve para FLOATS
+            break;
+        case 2: // Aqui serve para CHAR
+            break;
+
+    }
+    if (iterator.data== NULL && iterator.next == NULL)
+    {
+        iterator.data = malloc(sizeof(token));
+        iterator.data =  &NewToken;
+
+    }
+    
 }

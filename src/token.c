@@ -2,11 +2,6 @@
 #include "token.h"
 #include "token_linkedlist.h"
 
-typedef struct token 
-{
-void* token_value; 
-char token_type[];
-} token;
 
 //toDo: Puta que paril vou ter que implementar a buceta de uma lista encadeada
 //toDo: criar um arquivo so para esse bomba da lista encadeada

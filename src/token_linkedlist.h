@@ -1,4 +1,13 @@
+typedef struct linkedlistNode{
+    
+    void* data;
+    struct linkedlistNode *next;
+}Node;
 
-struct linkedList;
-struct linkedListNode;
+typedef struct linkedList
+{
+    int size;
+    struct linkedlistNode *list;
+
+}linkedList;
 struct linkedList initList(void);
