@@ -9,34 +9,36 @@ struct linkedList initList()
 {
     linkedList list;
     list.size = 0;
-    list.list = (Node*)malloc(sizeof(Node));
-    list.list->next = NULL;
-    list.list->data = NULL;
-
-
+    list.list = NULL;
     return list;
 }
 
 void appendList(struct linkedList *list, void *data, int datatype)
 {   
-    token NewToken;
-    Node iterator;
-    iterator = *list->list;
-    switch (datatype) 
+    Node *iterator;
+    if (list->list == NULL)
     {
-        case 0: // Aqui serve para INTS
-            break;
-        case 1: // Aqui serve para FLOATS
-            break;
-        case 2: // Aqui serve para CHAR
-            break;
-
+        list->list = (Node*)malloc(sizeof(Node));
+        list->list->data = &data;
+        list->list->next = NULL;
+        list->size++;
+        return;
     }
-    if (iterator.data== NULL && iterator.next == NULL)
+    iterator = list->list;
+    while(1)
     {
-        iterator.data = malloc(sizeof(token));
-        iterator.data =  &NewToken;
-
+        if (iterator->next == NULL)
+        {
+            iterator->next = (Node*)malloc(sizeof(Node));
+            iterator->next->next = NULL;
+            iterator->next->data = &data;
+            list->size++;
+            break;
+        }
+        else {
+            iterator = iterator->next;
+        }
     }
+
     
 }

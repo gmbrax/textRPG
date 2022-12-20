@@ -11,3 +11,4 @@ typedef struct linkedList
 
 }linkedList;
 struct linkedList initList(void);
+void appendList(struct linkedList *list, void *data, int datatype);
