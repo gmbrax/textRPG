@@ -13,13 +13,14 @@ struct linkedList initList()
     return list;
 }
 
-void appendList(struct linkedList *list, void *data, int datatype)
+void appendList(struct linkedList *list, struct Token *data)
 {   
     Node *iterator;
     if (list->list == NULL)
     {
         list->list = (Node*)malloc(sizeof(Node));
-        list->list->data = &data;
+        list->list->data = (token*) malloc(sizeof (token));
+        list->list->data = data; //toDo: Verificar com o debugger qual o meio de certo de atribuir aqui
         list->list->next = NULL;
         list->size++;
         return;
@@ -31,7 +32,8 @@ void appendList(struct linkedList *list, void *data, int datatype)
         {
             iterator->next = (Node*)malloc(sizeof(Node));
             iterator->next->next = NULL;
-            iterator->next->data = &data;
+            list->list->data = (token*) malloc(sizeof (token));
+            list->list->data = data; // Mesmo do acima
             list->size++;
             break;
         }
@@ -41,4 +43,15 @@ void appendList(struct linkedList *list, void *data, int datatype)
     }
 
     
+}
+
+void printList(linkedList *List){ //toDo: Verificar se no debugger se o erro não está acontecendo aqui ou na atribuição
+    Node *iterator;
+    iterator = List->list;
+    for(int i = 0; i< List->size; i++)
+    {
+        if (i == (List->size)-1){printf("Linked List [%i]: TOKEN:[%i]:[%i]",i,(int)iterator->data->token_value,iterator->data->token_type);}
+        else{printf("Linked List [%i]: TOKEN:[%i]:[%i]->",i,(int)iterator->data->token_value,iterator->data->token_type);}
+        iterator = iterator->next;
+    }
 }
