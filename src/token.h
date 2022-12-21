@@ -1,8 +1,9 @@
 typedef struct Token 
 {
 void *token_value; 
-char token_type[];
+int token_type;
 } token;
 
 struct Token *initializeTokenList(void);
+struct Token *initToken(void *value, int type);
 void tokenize(void);

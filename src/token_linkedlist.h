@@ -1,6 +1,8 @@
+
+
 typedef struct linkedlistNode{
     
-    void* data;
+    struct Token *data;
     struct linkedlistNode *next;
 }Node;
 
@@ -11,4 +13,5 @@ typedef struct linkedList
 
 }linkedList;
 struct linkedList initList(void);
-void appendList(struct linkedList *list, void *data, int datatype);
+void appendList(struct linkedList *list, struct Token *data);
+void printList(linkedList *List);

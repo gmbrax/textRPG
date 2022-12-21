@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "token.h"
 #include "token_linkedlist.h"
 
@@ -14,6 +15,14 @@ token *initializeTokenList() // Essa função vai ter que ir para o arquivo dedi
     return list;
 
 }
+
+struct Token *initToken(void *value, int type){
+    struct Token *token = (struct Token *)malloc(sizeof(struct Token*));
+    token->token_value = value;
+    token->token_type = type;
+    return token;
+}
+
 void tokenize()
 {
 
